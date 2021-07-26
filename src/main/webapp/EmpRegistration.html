@@ -1,0 +1,89 @@
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Registration</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+	integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+	crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+	integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+	integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+	crossorigin="anonymous"></script>
+
+</head>
+<body>
+	<header>
+		<nav class="navbar navbar-expand-md navbar-dark"
+			style="background-color: rgb(0, 128, 192)">
+			<div>
+				<a href="https://www.attendence" class="navbar-brand">Employee
+					Attendence Regularized</a>
+			</div>
+
+			<ul class="navbar-nav">
+				<li><a href="<%=request.getContextPath()%>/list"
+					class="nav-link">Employee list</a></li>
+			</ul>
+		</nav>
+	</header>
+	<br>
+	<div class="contianer col-md-5">
+		<div class="card">
+			<div class="card-body">
+				<!--<c:if test="${employee != null}">
+					<form action="update" method="post">
+				</c:if> -->
+				<c:if test="${employee == null}">
+					<form action="insert" method="post">
+				</c:if>
+				<caption>
+
+					<h2>
+						<!--.<c:if test="${employee != null}">
+						 Edit Employee
+	                    </c:if>
+	                   <!-- .-->
+						<c:if test="${employee == null}">
+	                     Add new Employee
+	                    </c:if>
+					</h2>
+				</caption>
+
+				<c:if test="${employee != null}">
+					<input type="hidden" name="id"
+						value="<c:out value='${employee.id}'/>" />
+				</c:if>
+
+				<fieldset class="form-group">
+					<label>Enter Employee Name</label><input type="text"
+						class="form-control" name="ename" required="required">
+				</fieldset>
+				<fieldset class="form-group">
+					<label>Enter Email</label><input type="text"
+					class="form-control"name="email" required="required">
+				</fieldset>
+				<fieldset class="form-group">
+					<label>Enter Phone Number</label><input type="text"
+						class="form-control" name="phone" required="required">
+				</fieldset>
+				<fieldset class="form-group">
+					<label>Enter Password</label><input type="text"
+					class="form-control" name="password" required="required">
+				</fieldset>
+				<button type="submit" class="btn btn-success">Save Details</button>
+				<a href="EmpLogin.html">click here to login</a>
+				</form>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
